@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="678.0" prefWidth="415.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatapplication.controller.MainFormController">
+    <children>
+        <Label layoutX="120.0" layoutY="41.0" text="Messenger">
+            <font>
+                <Font size="32.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btnStart" layoutX="15.0" layoutY="583.0" onAction="#btnStartOnAction" prefHeight="51.0" prefWidth="385.0" style="-fx-background-color: #AA77FF; -fx-background-radius: 15;" text="Start Server" textFill="WHITE">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </JFXButton>
+        <ImageView fx:id="rocketImage" fitHeight="279.0" fitWidth="295.0" layoutX="76.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../assets/rocket.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
