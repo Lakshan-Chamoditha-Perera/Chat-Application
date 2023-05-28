@@ -54,6 +54,7 @@ public class ClientChatFormController {
             throw new RuntimeException(e);
         }
     }
+
     void appendText(String message) {
 //        me
         HBox hBox = new HBox();
@@ -90,7 +91,7 @@ public class ClientChatFormController {
                 hBox.setStyle("-fx-fill-height: true; -fx-min-height: 50; -fx-pref-width: 520; -fx-max-width: 520; -fx-padding: 10; -fx-alignment: center-right;");
 
                 // Display the image in an ImageView or any other UI component
-                ImageView imageView = new ImageView(new Image( new FileInputStream(selectedFile)));
+                ImageView imageView = new ImageView(new Image(new FileInputStream(selectedFile)));
                 imageView.setStyle("-fx-padding: 10px;");
                 imageView.setFitHeight(180);
                 imageView.setFitWidth(100);
@@ -107,14 +108,18 @@ public class ClientChatFormController {
 
     public void setImage(byte[] bytes, String sender) {
         HBox hBox = new HBox();
+        Label messageLbl = new Label(sender);
+        messageLbl.setStyle("-fx-background-color:   #2980b9;-fx-background-radius:15;-fx-font-size: 18;-fx-font-weight: normal;-fx-text-fill: white;-fx-wrap-text: true;-fx-alignment: center;-fx-content-display: left;-fx-padding: 10;-fx-max-width: 350;");
+
         hBox.setStyle("-fx-fill-height: true; -fx-min-height: 50; -fx-pref-width: 520; -fx-max-width: 520; -fx-padding: 10; " + (sender.equals(client.getName()) ? "-fx-alignment: center-right;" : "-fx-alignment: center-left;"));
         // Display the image in an ImageView or any other UI component
         Platform.runLater(() -> {
-            ImageView imageView = new ImageView(new Image( new ByteArrayInputStream(bytes)));
+            ImageView imageView = new ImageView(new Image(new ByteArrayInputStream(bytes)));
             imageView.setStyle("-fx-padding: 10px;");
             imageView.setFitHeight(180);
             imageView.setFitWidth(100);
-            hBox.getChildren().addAll(imageView);
+
+            hBox.getChildren().addAll(messageLbl, imageView);
             vBox.getChildren().add(hBox);
         });
     }
