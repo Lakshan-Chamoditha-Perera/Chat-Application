@@ -32,7 +32,6 @@ public class MainFormController implements Initializable {
     }
 
     private void startServer() throws IOException {
-
         Server server = Server.getServerSocket();
         Thread thread = new Thread(server);
         thread.start();

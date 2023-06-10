@@ -6,9 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
 import java.net.Socket;
-import java.nio.file.Files;
 
 public class Client implements Runnable, Serializable {
     private final String name;
@@ -20,7 +22,7 @@ public class Client implements Runnable, Serializable {
     public Client(String name) throws IOException {
         this.name = name;
 
-        socket = new Socket("localhost", 1235);
+        socket = new Socket("localhost", 1236);
         inputStream = new DataInputStream(socket.getInputStream());
         outputStream = new DataOutputStream(socket.getOutputStream());
 
@@ -36,7 +38,10 @@ public class Client implements Runnable, Serializable {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("__________________________BYE_______________________");
+        Thread.interrupted(); // To terminate the thread, interrupt it
+        inputStream.close();
+        outputStream.close();
+        socket.close();
     }
 
     @Override
@@ -67,10 +72,10 @@ public class Client implements Runnable, Serializable {
     }
 
     public void sendImage(byte[] bytes) throws IOException {
-            outputStream.writeUTF("*image*");
-            outputStream.writeInt(bytes.length);
-            outputStream.write(bytes);
-            outputStream.flush();
+        outputStream.writeUTF("*image*");
+        outputStream.writeInt(bytes.length);
+        outputStream.write(bytes);
+        outputStream.flush();
     }
 
     private void loadScene() throws IOException {
@@ -86,7 +91,9 @@ public class Client implements Runnable, Serializable {
 
         stage.setOnCloseRequest(event -> {
             try {
-                System.out.println(name + " closed");
+//                System.out.println(name + " closed");
+                inputStream.close();
+                outputStream.close();
                 socket.close();
             } catch (IOException e) {
                 System.out.println(e);

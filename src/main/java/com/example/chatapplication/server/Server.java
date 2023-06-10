@@ -10,7 +10,7 @@ public class Server implements Runnable {
 
 
     private Server() throws IOException {
-        serverSocket = new ServerSocket(1235);
+        serverSocket = new ServerSocket(1236);
         System.out.println("Server Started");
     }
 

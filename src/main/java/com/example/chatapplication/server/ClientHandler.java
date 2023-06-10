@@ -44,17 +44,17 @@ public class ClientHandler implements Runnable {
                     }
                 }
             } catch (IOException e) {
+
                 clientHandlerList.remove(this);
-                System.out.println(clientName+" removed");
-                System.out.println(clientHandlerList.size());
+//                System.out.println(clientName+" removed");
+//                System.out.println(clientHandlerList.size());
                 break;
             }
         }
     }
 
     public void sendMessage(String sender, String msg) throws IOException {
-        msg = sender + ": " + msg;
-        outputStream.writeUTF(msg);
+        outputStream.writeUTF(sender + ": " + msg);
         outputStream.flush();
     }
 
@@ -65,8 +65,7 @@ public class ClientHandler implements Runnable {
         for (ClientHandler handler : clientHandlerList) {
             if (!handler.clientName.equals(clientName)) {
                 handler.sendImage(clientName, bytes);
-                System.out.println(clientName+" - image sent ");
-
+//                System.out.println(clientName+" - image sent ");
             }
         }
     }
@@ -77,6 +76,6 @@ public class ClientHandler implements Runnable {
         outputStream.writeInt(bytes.length);
         outputStream.write(bytes);
         outputStream.flush();
-        System.out.println("Image Sent");
+//        System.out.println("Image Sent");
     }
 }

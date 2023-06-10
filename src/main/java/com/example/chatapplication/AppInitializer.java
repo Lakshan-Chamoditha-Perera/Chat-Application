@@ -19,6 +19,9 @@ public class AppInitializer extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.setTitle("Rocket Chat");
         stage.show();
+
+        stage.setOnCloseRequest(windowEvent -> System.exit(0));
     }
 }

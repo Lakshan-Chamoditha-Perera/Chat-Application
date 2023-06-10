@@ -63,6 +63,9 @@
                 </GridPane>
             </children>
         </AnchorPane>
-        <JFXButton layoutX="256.0" layoutY="620.0" onAction="#btnEmojiOnAction" prefHeight="42.0" prefWidth="46.0" style="-fx-background-color: yellow;" text=" " />
+        <JFXButton layoutX="272.0" layoutY="620.0" onAction="#btnEmojiOnAction" prefHeight="42.0" prefWidth="46.0" style="-fx-background-color: yellow;" text="😀">
+         <font>
+            <Font size="19.0" />
+         </font></JFXButton>
     </children>
 </AnchorPane>

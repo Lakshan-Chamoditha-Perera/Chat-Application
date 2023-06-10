@@ -5,6 +5,8 @@ import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -45,9 +47,19 @@ public class ClientChatFormController {
     void btnSendOnAction(ActionEvent event) {
         try {
             String text = txtMsg.getText();
-            if (!text.equals(null)) {
+            if (text != null) {
                 appendText(text);
                 client.sendMessage(text);
+            } else {
+                ButtonType ok = new ButtonType("Ok");
+                ButtonType cancel = new ButtonType("Cancel");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Empty message. Is it ok?", ok, cancel);
+                alert.showAndWait();
+                ButtonType result = alert.getResult();
+                if (result.equals(ok)) {
+                    client.sendMessage(null);
+                }
+                txtMsg.clear();
             }
 
         } catch (IOException e) {
