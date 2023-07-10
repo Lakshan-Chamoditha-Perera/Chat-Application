@@ -39,11 +39,11 @@ public class MainFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ScaleTransition zoomIn = new ScaleTransition(Duration.seconds(1), rocketImage);
-        zoomIn.setFromX(1.0);
-        zoomIn.setFromY(1.0);
-        zoomIn.setToX(1.5);
-        zoomIn.setToY(1.5);
+        ScaleTransition zoomIn = new ScaleTransition(Duration.millis(600), rocketImage);
+        zoomIn.setFromX(0.5);
+        zoomIn.setFromY(0.5);
+        zoomIn.setToX(1.0);
+        zoomIn.setToY(1.0);
         zoomIn.play();
     }
 }

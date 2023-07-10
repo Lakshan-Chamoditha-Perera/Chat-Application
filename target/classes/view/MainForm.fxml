@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,20 +12,47 @@
 
 <AnchorPane fx:id="pane" prefHeight="678.0" prefWidth="415.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 15; -fx-border-radius: 15;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatapplication.controller.MainFormController">
     <children>
-        <Label layoutX="120.0" layoutY="41.0" text="Messenger">
+        <Label layoutX="54.0" layoutY="33.0" prefHeight="40.0" prefWidth="307.0" text="    Rocket Chat" textFill="#780483">
             <font>
                 <Font size="32.0" />
             </font>
         </Label>
-        <JFXButton fx:id="btnStart" layoutX="15.0" layoutY="583.0" onAction="#btnStartOnAction" prefHeight="51.0" prefWidth="385.0" style="-fx-background-color: #AA77FF; -fx-background-radius: 15;" text="Start Server" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </JFXButton>
-        <ImageView fx:id="rocketImage" fitHeight="279.0" fitWidth="295.0" layoutX="76.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="rocketImage" fitHeight="279.0" fitWidth="295.0" layoutX="82.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../assets/rocket.png" />
             </image>
         </ImageView>
+      <Label layoutX="48.0" layoutY="72.0" prefHeight="21.0" prefWidth="313.0" style="-fx-background-radius: 5;" text="   simple, fast and synced across all your devices" textAlignment="CENTER" textFill="#9a3f8b" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Separator layoutX="47.0" layoutY="102.0" prefHeight="4.0" prefWidth="307.0" />
+      <Separator layoutX="51.0" layoutY="28.0" prefHeight="4.0" prefWidth="307.0" />
+      <ImageView fx:id="rocketImage1" fitHeight="279.0" fitWidth="418.0" layoutY="399.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/8852074.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutY="269.0" prefHeight="409.0" prefWidth="418.0">
+         <children>
+              <JFXButton fx:id="btnStart" layoutX="102.0" layoutY="256.0" onAction="#btnStartOnAction" prefHeight="50.0" prefWidth="212.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #780483; -fx-border-radius: 10;" text="Start" textFill="#3f164d">
+                  <font>
+                      <Font size="18.0" />
+                  </font>
+               <effect>
+                  <BoxBlur />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+              </JFXButton>
+            <Label layoutX="112.0" layoutY="395.0" prefHeight="14.0" prefWidth="178.0" style="-fx-background-radius: 5;" text="developed by Shan Perera - 2023 May" textAlignment="CENTER" textFill="WHITE" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

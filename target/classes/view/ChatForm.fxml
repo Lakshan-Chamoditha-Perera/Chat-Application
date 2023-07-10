@@ -13,10 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="678.0" prefWidth="415.0" style="-fx-background-color: #F1F3F4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatapplication.controller.ChatFormController">
+<AnchorPane prefHeight="678.0" prefWidth="415.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.chatapplication.controller.ChatFormController">
     <children>
-        <TextField fx:id="txtMessage" layoutX="5.0" layoutY="620.0" onAction="#txtMessageOnAction" prefHeight="42.0" prefWidth="313.0" style="-fx-background-color: white;" />
-        <JFXButton layoutX="334.0" layoutY="12.0" onAction="#btnAddClientOnAction" prefHeight="56.0" prefWidth="14.0" style="-fx-background-color: White; -fx-background-radius: 50;" text=" ">
+        <TextField fx:id="txtMessage" layoutX="5.0" layoutY="620.0" onAction="#txtMessageOnAction" prefHeight="42.0" prefWidth="313.0" promptText="Enter message here" style="-fx-background-color: white;" />
+        <JFXButton layoutX="341.0" layoutY="11.0" onAction="#btnAddClientOnAction" prefHeight="56.0" prefWidth="14.0" style="-fx-background-color: #EEEEEE; -fx-background-radius: 50;" text=" ">
             <graphic>
                 <ImageView fitHeight="43.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -25,11 +25,6 @@
                 </ImageView>
             </graphic>
         </JFXButton>
-        <Label layoutX="5.0" layoutY="14.0" prefHeight="56.0" prefWidth="313.0" style="-fx-background-color: white; -fx-background-radius: 10;" text=" Rocket Chat Server" textFill="#8d02b5">
-            <font>
-                <Font size="30.0" />
-            </font>
-        </Label>
         <JFXButton fx:id="btnSend" layoutX="335.0" layoutY="613.0" onAction="#btnSendOnAction" prefHeight="56.0" prefWidth="14.0" style="-fx-background-color: White; -fx-background-radius: 50;" text=" ">
             <graphic>
                 <ImageView fitHeight="43.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
@@ -41,7 +36,7 @@
         </JFXButton>
         <ScrollPane layoutX="5.0" layoutY="81.0" prefHeight="525.0" prefWidth="404.0" style="-fx-background-color: white;">
             <content>
-                <VBox fx:id="vBox" prefHeight="517.0" prefWidth="397.0" style="-fx-background-color: white;" />
+                <VBox fx:id="vBox" prefHeight="517.0" prefWidth="397.0" style="-fx-background-color: #EEEEEE;" />
             </content>
         </ScrollPane>
         <AnchorPane fx:id="emojiAnchorpane" layoutX="96.0" layoutY="409.0" prefHeight="216.0" prefWidth="307.0">
@@ -67,5 +62,10 @@
          <font>
             <Font size="19.0" />
          </font></JFXButton>
+      <Label layoutX="5.0" layoutY="10.0" prefHeight="56.0" prefWidth="332.0" style="-fx-background-color: white; -fx-background-radius: 10;" text="   Rocket Chat Server" textFill="#001c30">
+         <font>
+            <Font name="Gidugu" size="35.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -36,13 +36,7 @@ public class Client implements Runnable, Serializable {
         }
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        Thread.interrupted(); // To terminate the thread, interrupt it
-        inputStream.close();
-        outputStream.close();
-        socket.close();
-    }
+
 
     @Override
     public void run() {
@@ -59,7 +53,7 @@ public class Client implements Runnable, Serializable {
             } catch (IOException e) {
                 try {
                     socket.close();
-                } catch (IOException ex) {
+                } catch (IOException ignored) {
 
                 }
             }
